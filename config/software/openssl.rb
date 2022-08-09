@@ -37,6 +37,8 @@ default_version "1.1.1q"
 # https://www.openssl.org/source/old/<bugfix_version>/openssl-<full_version>.tar.gz
 source url: "https://www.openssl.org/source/openssl-#{version}.tar.gz", extract: :lax_tar
 
+# NOTE: when upgrading to 3.0.0, we need to look at https://github.com/openssl/openssl/commit/a6a4d0acd23b3fc85041d9096b67bcf18ccb635c
+# and figure out if that still does the expected thing for the `--api` argument we're passing to configure down below
 version("1.1.1q") { source sha256: "d7939ce614029cdff0b6c20f0e2e5703158a489a72b2507b8bd51bf8c8fd10ca" }
 version("1.1.1p") { source sha256: "bf61b62aaa66c7c7639942a94de4c9ae8280c08f17d4eac2e44644d9fc8ace6f" }
 version("1.1.1o") { source sha256: "9384a2b0570dd80358841464677115df785edb941c71211f75076d72fe6b438f" }
@@ -80,6 +82,9 @@ build do
     "--prefix=#{install_dir}/embedded",
     "--with-zlib-lib=#{install_dir}/embedded/lib",
     "--with-zlib-include=#{install_dir}/embedded/include",
+    # Use API 1.1.0 compatibility. Without this, aerospike Python package installed
+    # from source on CentOS 6 can't find sk_pop_free symbol on import
+    "--api=1.1.0",
     "no-idea",
     "no-mdc2",
     "no-rc5",
