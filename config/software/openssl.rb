@@ -82,9 +82,9 @@ build do
     "--prefix=#{install_dir}/embedded",
     "--with-zlib-lib=#{install_dir}/embedded/lib",
     "--with-zlib-include=#{install_dir}/embedded/include",
-    # Use API 1.1.0 compatibility. Without this, aerospike Python package installed
+    # Use API 1.0.0 compatibility. Without this, aerospike Python package installed
     # from source on CentOS 6 can't find sk_pop_free symbol on import
-    "--api=1.1.0",
+    "--api=1.0.0",
     "no-idea",
     "no-mdc2",
     "no-rc5",
