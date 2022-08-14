@@ -20,6 +20,7 @@ name "python2"
 if ohai["platform"] != "windows"
   default_version "2.7.18"
 
+  dependency "libcrypt"
   dependency "ncurses"
   dependency "zlib"
   dependency "openssl"

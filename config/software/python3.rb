@@ -3,6 +3,7 @@ name "python3"
 default_version "3.7.1"
 
 if ohai["platform"] != "windows"
+  dependency "libcrypt"
   dependency "libffi"
   dependency "ncurses"
   dependency "zlib"
