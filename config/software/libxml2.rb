@@ -34,7 +34,7 @@ version "2.9.4" do
   source sha256: "ffb911191e509b966deb55de705387f14156e1a56b21824357cdf0053233633c"
 end
 
-source url: "ftp://xmlsoft.org/libxml2/libxml2-#{version}.tar.gz"
+source url: "http://xmlsoft.org/download/libxml2-#{version}.tar.gz"
 
 relative_path "libxml2-#{version}"
 
