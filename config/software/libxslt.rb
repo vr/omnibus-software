@@ -31,7 +31,7 @@ version "1.1.28" do
   source sha256: "5fc7151a57b89c03d7b825df5a0fae0a8d5f05674c0e7cf2937ecec4d54a028c"
 end
 
-source url: "ftp://xmlsoft.org/libxml2/libxslt-#{version}.tar.gz"
+source url: "http://xmlsoft.org/download/libxslt-#{version}.tar.gz"
 
 relative_path "libxslt-#{version}"
 
