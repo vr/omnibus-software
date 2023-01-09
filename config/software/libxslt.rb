@@ -18,6 +18,9 @@
 name "libxslt"
 default_version "1.1.28"
 
+license "MIT"
+license_file "Copyright"
+
 dependency "libxml2"
 dependency "libtool" if ohai["platform"] == "solaris2"
 dependency "liblzma"
@@ -46,6 +49,7 @@ build do
 
   command(["./configure",
            "--prefix=#{install_dir}/embedded",
+           "--disable-static",
            "--with-libxml-prefix=#{install_dir}/embedded",
            "--with-libxml-include-prefix=#{install_dir}/embedded/include",
            "--with-libxml-libs-prefix=#{install_dir}/embedded/lib",

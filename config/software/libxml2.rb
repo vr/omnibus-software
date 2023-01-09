@@ -18,6 +18,9 @@
 name "libxml2"
 default_version "2.9.4"
 
+license "MIT"
+license_file "Copyright"
+
 dependency "zlib"
 dependency "libiconv"
 dependency "liblzma"
@@ -44,7 +47,8 @@ build do
          "--with-zlib=#{install_dir}/embedded",
          "--with-iconv=#{install_dir}/embedded",
          "--without-python",
-         "--without-icu"].join(" ")
+         "--without-icu",
+         "--disable-static"].join(" ")
   env = {
     "LDFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
     "CFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",

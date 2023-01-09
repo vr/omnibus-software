@@ -33,6 +33,7 @@ configure_env = {
 build do
   command ["./configure",
            "--prefix=#{install_dir}/embedded",
+           "--disable-static",
            "--enable-pcretest-libedit"].join(" "), env: configure_env
   command("make -j #{workers}",
     env: {
