@@ -48,6 +48,7 @@ build do
          "--with-iconv=#{install_dir}/embedded",
          "--without-python",
          "--without-icu",
+         "--without-docbook",
          "--disable-static"].join(" ")
   env = {
     "LDFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
