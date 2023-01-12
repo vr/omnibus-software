@@ -16,11 +16,15 @@
 #
 
 name "nfsiostat"
-default_version "nfs-utils-2-1-1"
+default_version "2.1.1"
 
-source :git => "git://git.linux-nfs.org/projects/steved/nfs-utils.git"
+version "2.1.1" do
+  source :sha256 => "381bb3f6aa4b314538db0bcfb242da855c2eb36e2059cf61aa498c0220684363"
+end
 
-relative_path "nfs-utils"
+source :url => "https://cdn.kernel.org/pub/linux/utils/nfs-utils/#{version}/nfs-utils-#{version}.tar.gz"
+
+relative_path "nfs-utils-#{version}"
 
 build do
   mkdir "#{install_dir}/embedded/sbin/"
