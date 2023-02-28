@@ -16,12 +16,12 @@
 #
 
 name "gdbm"
-default_version "1.11"
+default_version "1.23"
 
 dependency "libgcc"
 
 source url: "http://ftp.gnu.org/gnu/gdbm/gdbm-#{version}.tar.gz",
-       md5: "72c832680cf0999caedbe5b265c8c1bd"
+       sha256: "74b1081d21fff13ae4bd7c16e5d6e504a4c26f7cde1dca0d963a484174bbcacd"
 
 relative_path "gdbm-#{version}"
 
@@ -44,6 +44,7 @@ build do
 
   configure_command = ["./configure",
                        "--enable-libgdbm-compat",
+                       "--without-readline",
                        "--prefix=#{install_dir}/embedded"]
 
   if ohai["platform"] == "freebsd"
@@ -53,4 +54,6 @@ build do
   command configure_command.join(" "), env: env
   command "make -j #{workers}", env: env
   command "make install", env: env
+
+  command "rm #{install_dir}/embedded/bin/gdbmtool"
 end
