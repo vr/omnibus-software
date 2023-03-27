@@ -55,5 +55,8 @@ build do
   command "make -j #{workers}", env: env
   command "make install", env: env
 
+  # drop some cli tools we do not use
   command "rm #{install_dir}/embedded/bin/gdbmtool"
+  command "rm #{install_dir}/embedded/bin/gdbm_dump"
+  command "rm #{install_dir}/embedded/bin/gdbm_load"
 end
