@@ -26,6 +26,9 @@ source url: "http://ftp.gnu.org/gnu/gdbm/gdbm-#{version}.tar.gz",
 relative_path "gdbm-#{version}"
 
 build do
+  license "GPL-3.0"
+  license_file "COPYING"
+
   env = case ohai["platform"]
         when "solaris2"
           {
