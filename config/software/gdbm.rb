@@ -45,6 +45,7 @@ build do
   configure_command = ["./configure",
                        "--enable-libgdbm-compat",
                        "--without-readline",
+                       "--disable-static",
                        "--prefix=#{install_dir}/embedded"]
 
   if ohai["platform"] == "freebsd"
