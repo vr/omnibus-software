@@ -42,7 +42,7 @@ version "9.4.25" do
 end
 
 version "9.6.24" do
-  source sha256: "52947ecc119846eace5164399d173576c0d4a47ec116ae58a46a8fd0c576c7c3"
+  source sha256: "aeb7a196be3ebed1a7476ef565f39722187c108dd47da7489be9c4fcae982ace"
 end
 
 source url: "https://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
