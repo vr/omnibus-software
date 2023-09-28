@@ -17,6 +17,9 @@ build do
   license "MIT"
   license_file "./COPYING"
 
+  env = with_standard_compiler_flags
+  env["LD_RUN_PATH"] = "#{install_dir}/embedded/lib"
+
   command [
     "./configure",
     "--disable-app",
@@ -24,6 +27,6 @@ build do
     "--disable-hpack-tools",
     "--prefix=#{install_dir}/embedded",
   ].join(" ")
-  command "make -j #{workers}", env: { "LD_RUN_PATH" => "#{install_dir}/embedded/lib" }
+  command "V=1 make -j #{workers}", env: env
   command "make install"
 end
