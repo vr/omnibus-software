@@ -68,8 +68,7 @@ build do
     end
 
     env["CFLAGS"] << " -fPIC"
-
-    configure env: env
+    command "cmake -DCMAKE_TOOLCHAIN_FILE=/opt/toolchains/toolchain.cmake .", env: env
 
     make "-j #{workers}", env: env
     make "-j #{workers} install", env: env
